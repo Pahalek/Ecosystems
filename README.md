@@ -275,10 +275,27 @@ Run the test suite:
 python tests/test_econometric_agent.py
 ```
 
-Run the example:
+Run the basic example:
 ```bash
 python example.py
 ```
+
+Run the advanced professional workflow:
+```bash
+python advanced_example.py
+```
+
+## Examples
+
+### Basic Example (`example.py`)
+Demonstrates fundamental features with synthetic data when no FRED API key is available.
+
+### Advanced Example (`advanced_example.py`) 
+Comprehensive professional workflow including:
+- Multiple model types and comparison
+- Stationarity analysis for all key variables
+- 12-month forecasting with confidence intervals
+- Professional insights and recommendations
 
 ## Requirements
 

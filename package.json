@@ -1,0 +1,26 @@
+{
+    "name": "financial-ecosystem-research",
+    "version": "1.0.0",
+    "description": "Research environment for financial inclusion in multinational business ecosystems",
+    "main": "src/main.py",
+    "scripts": {
+        "start": "python src/main.py",
+        "test": "pytest tests/",
+        "lint": "flake8 src/ tests/",
+        "format": "black src/ tests/",
+        "research": "jupyter lab notebooks/",
+        "analyze": "python src/research_agent.py"
+    },
+    "keywords": [
+        "financial-inclusion",
+        "business-ecosystems",
+        "multinational-corporations",
+        "research",
+        "visualization"
+    ],
+    "author": "Research Team",
+    "license": "MIT",
+    "dependencies": {
+        "python": ">=3.9"
+    }
+}

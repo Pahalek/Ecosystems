@@ -1,0 +1,64 @@
+{
+    "workbench.colorTheme": "Dark+ (default dark)",
+    "editor.fontFamily": "'Fira Code', 'Cascadia Code', Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "editor.lineHeight": 22,
+    
+    // GitHub Copilot Configuration
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": true,
+        "plaintext": true,
+        "markdown": true,
+        "python": true,
+        "json": true
+    },
+    "github.copilot.inlineSuggest.enable": true,
+    "github.copilot.chat.experimental.welcomeMessage": "ask",
+    
+    // Python Configuration for Research
+    "python.defaultInterpreterPath": "./venv/bin/python",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": ["--line-length", "100"],
+    
+    // Jupyter Configuration
+    "jupyter.askForKernelRestart": false,
+    "jupyter.alwaysTrustNotebooks": true,
+    "jupyter.sendSelectionToInteractiveWindow": true,
+    
+    // File Associations for Research
+    "files.associations": {
+        "*.md": "markdown",
+        "*.py": "python",
+        "*.ipynb": "jupyter",
+        "*.json": "json",
+        "*.yaml": "yaml",
+        "*.yml": "yaml"
+    },
+    
+    // Auto-save for research work
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    
+    // Git configuration
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    
+    // Research-specific settings
+    "workbench.editor.showTabs": true,
+    "workbench.editor.tabCloseButton": "right",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    
+    // Terminal configuration
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.fontSize": 13,
+    
+    // Extensions recommendations will be handled separately
+    "extensions.ignoreRecommendations": false
+}

@@ -218,10 +218,10 @@ class TestIntegration(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    # Create test directories if they don't exist
-    os.makedirs('/home/runner/work/Ecosystems/Ecosystems/reports', exist_ok=True)
-    os.makedirs('/home/runner/work/Ecosystems/Ecosystems/data', exist_ok=True)
-    os.makedirs('/home/runner/work/Ecosystems/Ecosystems/visualizations', exist_ok=True)
-    os.makedirs('/home/runner/work/Ecosystems/Ecosystems/config', exist_ok=True)
+    # Create test directories if they don't exist (use relative paths for portability)
+    os.makedirs('reports', exist_ok=True)
+    os.makedirs('data', exist_ok=True)
+    os.makedirs('visualizations', exist_ok=True)
+    os.makedirs('config', exist_ok=True)
     
     unittest.main(verbosity=2)

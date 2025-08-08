@@ -268,7 +268,9 @@ class VisualizationPlanner:
         plt.tight_layout()
         
         # Save figure
-        output_path = '/home/runner/work/Ecosystems/Ecosystems/visualizations/three_phase_diagram.png'
+        output_dir = os.path.join(os.getcwd(), "visualizations")
+        os.makedirs(output_dir, exist_ok=True)
+        output_path = os.path.join(output_dir, "three_phase_diagram.png")
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
         plt.close()
         

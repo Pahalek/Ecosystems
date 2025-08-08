@@ -545,7 +545,12 @@ def main():
         'health_analysis': health_analysis
     }
     
-    with open('/home/runner/work/Ecosystems/Ecosystems/data/financial_analysis_results.json', 'w') as f:
+    # Ensure the data directory exists
+    data_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'data')
+    data_dir = os.path.abspath(data_dir)
+    os.makedirs(data_dir, exist_ok=True)
+    results_path = os.path.join(data_dir, 'financial_analysis_results.json')
+    with open(results_path, 'w') as f:
         json.dump(results, f, indent=2, default=str)
     
     print("\nAnalysis results saved to data/financial_analysis_results.json")

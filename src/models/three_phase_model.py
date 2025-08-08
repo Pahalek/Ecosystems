@@ -571,10 +571,13 @@ def main():
     print(f"Total stakeholders: {status['total_stakeholders']}")
     
     # Save results
-    with open('/home/runner/work/Ecosystems/Ecosystems/data/three_phase_results.json', 'w') as f:
+    data_dir = os.environ.get("DATA_DIR", "data")
+    os.makedirs(data_dir, exist_ok=True)
+    results_path = os.path.join(data_dir, "three_phase_results.json")
+    with open(results_path, 'w') as f:
         json.dump(status, f, indent=2, default=str)
     
-    print("\nResults saved to data/three_phase_results.json")
+    print(f"\nResults saved to {results_path}")
 
 
 if __name__ == "__main__":

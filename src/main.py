@@ -83,7 +83,10 @@ class EcosystemResearchOrchestrator:
         research_report = self.research_agent.generate_expert_analysis_report()
         
         # Save research report
-        with open('/home/runner/work/Ecosystems/Ecosystems/reports/comprehensive_research_analysis.md', 'w', encoding='utf-8') as f:
+        reports_dir = os.path.join(os.path.dirname(__file__), 'reports')
+        os.makedirs(reports_dir, exist_ok=True)
+        report_path = os.path.join(reports_dir, 'comprehensive_research_analysis.md')
+        with open(report_path, 'w', encoding='utf-8') as f:
             f.write(research_report)
         
         # 2. Three-Phase Model Execution

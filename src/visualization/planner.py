@@ -236,7 +236,7 @@ class VisualizationPlanner:
         fig, ax = plt.subplots(1, 1, figsize=(14, 8))
         
         # Define phases
-        phases = ['DEFINE\nФінансова стратегія', 'DESIGN\nФінансова архітектура', 'BUILD\nОпераційна інтеграція']
+        phases = THREE_PHASE_DIAGRAM_PHASES
         phase_colors = ['#FF6B6B', '#4ECDC4', '#45B7D1']
         
         # Create phase boxes

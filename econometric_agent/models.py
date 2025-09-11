@@ -134,13 +134,29 @@ class EconometricModels:
         if order is None:
             order = self._auto_arima_order(train_data)
         
-        # Fit model
-        if seasonal_order is not None:
-            model = SARIMAX(train_data, order=order, seasonal_order=seasonal_order)
-        else:
-            model = ARIMA(train_data, order=order)
-        
-        fitted_model = model.fit()
+        # Fit model with robust error handling
+        try:
+            if seasonal_order is not None:
+                model = SARIMAX(train_data, order=order, seasonal_order=seasonal_order)
+            else:
+                model = ARIMA(train_data, order=order)
+            
+            # Suppress convergence warnings for cleaner output
+            with warnings.catch_warnings():
+                warnings.filterwarnings('ignore', 'Maximum Likelihood optimization failed to converge')
+                fitted_model = model.fit()
+                
+        except Exception as e:
+            # If fitting fails, try with simpler order
+            if order != (1, 1, 1):
+                warnings.warn(f"ARIMA fitting failed with order {order}, trying (1,1,1): {e}")
+                order = (1, 1, 1)
+                model = ARIMA(train_data, order=order)
+                with warnings.catch_warnings():
+                    warnings.filterwarnings('ignore', 'Maximum Likelihood optimization failed to converge')
+                    fitted_model = model.fit()
+            else:
+                raise Exception(f"ARIMA model fitting failed: {e}")
         
         # Generate forecasts
         forecast_steps = len(test_data)
@@ -392,8 +408,10 @@ class EconometricModels:
         # Augmented Dickey-Fuller test
         adf_result = adfuller(data.dropna())
         
-        # KPSS test
-        kpss_result = kpss(data.dropna())
+        # KPSS test with warning suppression for interpolation edge cases
+        with warnings.catch_warnings():
+            warnings.filterwarnings('ignore', 'The test statistic is outside of the range')
+            kpss_result = kpss(data.dropna())
         
         results = {
             'adf_test': {

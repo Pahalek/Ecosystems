@@ -47,7 +47,7 @@ def main():
         print("Generating synthetic data for demonstration...")
         
         # Generate synthetic economic data for demonstration
-        dates = pd.date_range('2020-01-01', '2023-12-31', freq='M')
+        dates = pd.date_range('2020-01-01', '2023-12-31', freq='ME')
         np.random.seed(42)
         
         # Create synthetic economic indicators

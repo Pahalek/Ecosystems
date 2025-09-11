@@ -23,7 +23,7 @@ class TestEconometricAgent(unittest.TestCase):
         self.agent = EconometricAgent()
         
         # Create synthetic test data
-        dates = pd.date_range('2020-01-01', '2023-12-31', freq='M')
+        dates = pd.date_range('2020-01-01', '2023-12-31', freq='ME')
         np.random.seed(42)
         
         self.test_data = pd.DataFrame({

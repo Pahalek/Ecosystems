@@ -83,7 +83,10 @@ class EconomicDataFetcher:
                 continue
         
         if not data_dict:
-            raise ValueError("No data could be fetched for any of the requested series")
+            if not self.fred_api_key:
+                raise ValueError("No data could be fetched for any of the requested series. Consider setting a FRED API key for real data access.")
+            else:
+                raise ValueError("No data could be fetched for any of the requested series")
         
         df = pd.DataFrame(data_dict)
         return df

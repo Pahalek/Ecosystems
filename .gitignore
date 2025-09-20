@@ -52,3 +52,7 @@ logs/
 # OS
 .DS_Store
 Thumbs.db
+
+# Environment optimization
+.environment-optimized
+.econometric-env-config
